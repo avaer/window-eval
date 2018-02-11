@@ -8,6 +8,9 @@ function windowEval(code, context = {}, options = {}) {
     set(target, propKey, value, receiver) {
       return Reflect.set(target, propKey, value, receiver);
     },
+    has(target, propKey) {
+      return true; // trap sets
+    },
   });
   for (const k in context) {
     if (context[k] === context) {
