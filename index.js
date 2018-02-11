@@ -9,6 +9,11 @@ function windowEval(code, context = {}, options = {}) {
       return Reflect.set(target, propKey, value, receiver);
     },
   });
+  for (const k in context) {
+    if (context[k] === context) {
+      context[k] = proxy;
+    }
+  }
   return eval(`with (proxy) {${code}}
 //# sourceURL=${options.filename}`);
 }
