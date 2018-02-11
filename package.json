@@ -1,6 +1,6 @@
 {
   "name": "window-eval",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Eval in context (global/window), in pure JS",
   "main": "index.js",
   "scripts": {
