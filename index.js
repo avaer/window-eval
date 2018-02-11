@@ -20,7 +20,7 @@ function windowEval(code, context = {}, options = {}) {
   return eval(`with (proxy) {${code}}
 //# sourceURL=${options.filename}`);
 }
-windowEval.browserGlobals = [
+windowEval.builtinKeys = [
   'Array',
   'ArrayBuffer',
   'Atomics',
