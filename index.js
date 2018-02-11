@@ -17,8 +17,9 @@ function windowEval(code, context = {}, options = {}) {
       context[k] = proxy;
     }
   }
-  return new Function('proxy', `with (proxy) {${code}}
-//# sourceURL=${options.filename}`).call(proxy, proxy);
+  context._global = proxy;
+  return new Function('proxy', `with (proxy) {(function() {${code}}).call(_global)}
+//# sourceURL=${options.filename}`)(proxy);
 }
 windowEval.builtinKeys = [
   'Array',
